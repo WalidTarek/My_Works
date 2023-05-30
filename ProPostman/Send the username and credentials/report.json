@@ -1,0 +1,387 @@
+{
+  "collection": {
+    "_": {
+      "postman_id": "a60a9168-846a-43be-88cc-e36c90b6f02c",
+      "exporter_id": "26052351"
+    },
+    "item": [
+      {
+        "id": "083931a3-cf58-4c5e-8198-911f5e3f4b3f",
+        "name": "New Folder",
+        "item": [
+          {
+            "id": "e4d3db88-470f-46ad-b252-b4738919e93a",
+            "name": "New Request",
+            "request": {
+              "url": {
+                "host": [
+                  "{{baseurl}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "basic",
+                "basic": [
+                  {
+                    "type": "string",
+                    "value": "{{password}}",
+                    "key": "password"
+                  },
+                  {
+                    "type": "string",
+                    "value": "{{username}}",
+                    "key": "username"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "fbdb7ddb-9564-4487-b47c-0206a88befc6",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"athentication should be true\", function () {\r",
+                    "    var jsonData = pm.response.json();\r",
+                    "    pm.expect(jsonData.authenticated).to.eql(true);\r",
+                    "});\r",
+                    "pm.test(\"Status code is 200\", function () {\r",
+                    "    pm.response.to.have.status(200);\r",
+                    "});"
+                  ],
+                  "_lastExecutionId": "5262cb2f-6987-40e6-a6fa-ed3689402335"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      }
+    ],
+    "event": [],
+    "variable": [],
+    "info": {
+      "_postman_id": "a60a9168-846a-43be-88cc-e36c90b6f02c",
+      "name": "Send the username and credentials",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment",
+      "postman_exported_at": "2023-05-08T00:05:48.518Z",
+      "postman_exported_using": "Postman/10.13.5"
+    },
+    "id": "1365d6e0-c603-4cce-9d7b-87b1ed19941f",
+    "name": "Send cred Env",
+    "values": [
+      {
+        "type": "any",
+        "value": "https://postman-echo.com/basic-auth",
+        "key": "baseurl"
+      },
+      {
+        "type": "any",
+        "value": "postman",
+        "key": "username"
+      },
+      {
+        "type": "any",
+        "value": "password",
+        "key": "password"
+      }
+    ]
+  },
+  "globals": {
+    "id": "b81298d4-2745-4fbd-a169-6c3db2ee4d50",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 680,
+      "responseMin": 680,
+      "responseMax": 680,
+      "responseSd": 0,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1683709028147,
+      "completed": 1683709028948
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 1,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "f7640dc0-7b4e-4388-98af-d66ff20e050c",
+          "httpRequestId": "48d09c43-2ae5-4908-816f-5f6006173e13"
+        },
+        "item": {
+          "id": "e4d3db88-470f-46ad-b252-b4738919e93a",
+          "name": "New Request",
+          "request": {
+            "url": {
+              "host": [
+                "{{baseurl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "type": "string",
+                  "value": "{{password}}",
+                  "key": "password"
+                },
+                {
+                  "type": "string",
+                  "value": "{{username}}",
+                  "key": "username"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fbdb7ddb-9564-4487-b47c-0206a88befc6",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"athentication should be true\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.authenticated).to.eql(true);\r",
+                  "});\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "_lastExecutionId": "5262cb2f-6987-40e6-a6fa-ed3689402335"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "basic-auth"
+            ],
+            "host": [
+              "postman-echo",
+              "com"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Basic cG9zdG1hbjpwYXNzd29yZA==",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "bde5f4be-6967-4fb7-8e5d-820a0c2987db",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "postman-echo.com",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "basic",
+            "basic": [
+              {
+                "type": "string",
+                "value": "password",
+                "key": "password"
+              },
+              {
+                "type": "string",
+                "value": "postman",
+                "key": "username"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "c2168276-6c38-436d-a805-1bbbabff7867",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 10 May 2023 07:57:11 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "27"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1b-o64KRFi1Uw+73hnrS1UFKUVInOY\""
+            },
+            {
+              "key": "set-cookie",
+              "value": "sails.sid=s%3AxBlhRv-4lYfLelfpzPqU8IL6ZKaZca8C.tYWoukRJR9jOgJ3c9KMd3wyinZLIELC3R7a0SAC9jRI; Path=/; HttpOnly"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              10,
+              32,
+              32,
+              34,
+              97,
+              117,
+              116,
+              104,
+              101,
+              110,
+              116,
+              105,
+              99,
+              97,
+              116,
+              101,
+              100,
+              34,
+              58,
+              32,
+              116,
+              114,
+              117,
+              101,
+              10,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 680,
+          "responseSize": 27
+        },
+        "id": "e4d3db88-470f-46ad-b252-b4738919e93a",
+        "assertions": [
+          {
+            "assertion": "athentication should be true",
+            "skipped": false
+          },
+          {
+            "assertion": "Status code is 200",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 27
+    },
+    "failures": [],
+    "error": null
+  }
+}

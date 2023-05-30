@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "3010170d-c7b1-4c3b-96e4-20f2afce17a2",
+		"name": "postman_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26052351"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "get queryParam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"////1\r",
+									"pm.test(\"check Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"///2\r",
+									"pm.test(\"check the args foo2 \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.args.foo2).to.eql(\"bar2\\n\");\r",
+									"});\r",
+									"///3\r",
+									"pm.test(\"check the args foo1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.args.foo1).to.eql(\"bar1\");\r",
+									"});\r",
+									"///4\r",
+									"pm.test(\"check the url  \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.url).to.eql( \"https://postman-echo.com/get?foo1=bar1&foo2=bar2%0A\");\r",
+									"});\r",
+									"///5\r",
+									"pm.test(\"check the headers host \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.headers.host).to.eql(\"postman-echo.com\");\r",
+									"});\r",
+									"///6\r",
+									"var jsonData=pm.response.json()\r",
+									"var cookie =jsonData.headers.cookie\r",
+									"pm.test(\"check the headers cookie\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.headers.cookie).to.eql(cookie);\r",
+									"});\r",
+									"///7\r",
+									"var token =jsonData.headers.postman-token\r",
+									"pm.test(\"check the headers postman-token \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.headers.postman-token).to.eql(token);\r",
+									"});\r",
+									"///8\r",
+									"pm.test(\"check if the response contains x-amzn-trace-id\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"x-amzn-trace-id\");\r",
+									"});\r",
+									"///9\r",
+									"var idTrace = pm.response.headers.get(\"hox-amzn-trace-id\");\r",
+									"pm.test(\"check traceId Headers\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(pm.response.headers.get(\"hox-amzn-trace-id\")).to.eql(idTrace);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?foo1=bar1&foo2=bar2\n",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "foo1",
+									"value": "bar1"
+								},
+								{
+									"key": "foo2",
+									"value": "bar2\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Auth status 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "fsdfs",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "postman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/basic-auth",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"basic-auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"athentication should be true\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.authenticated).to.eql(true);\r",
+									"});\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "postman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://postman-echo.com/basic-auth",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"basic-auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

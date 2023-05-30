@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Auth_run_Command" tests="1" time="0.746">
+  <testsuite name="New Folder / Get_AUTH" id="ca16258a-2e03-43c6-8714-461d09b7ebfc" timestamp="2023-05-10T09:07:32.147Z" tests="2" failures="0" errors="0" time="0.746">
+    <testcase name="athentication should be true" time="0.746" classname="AuthRunCommand"/>
+    <testcase name="Status code is 200" time="0.746" classname="AuthRunCommand"/>
+  </testsuite>
+</testsuites>
